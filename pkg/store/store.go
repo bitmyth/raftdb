@@ -122,7 +122,9 @@ func (s *Store) Open(enableSingle bool, localID string) error {
 	if err != nil {
 		return err
 	}
-	transport, err := raft.NewTCPTransport(s.RaftBind, addr, 3, 10*time.Second, os.Stderr)
+	// transport, err := raft.NewTCPTransport(s.RaftBind, addr, 3, 10*time.Second, os.Stderr)
+        transport, err := raft.NewTCPTransport(":8089", addr, 3, 10*time.Second, os.Stderr)
+
 	if err != nil {
 		return err
 	}
